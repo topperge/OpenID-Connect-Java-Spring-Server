@@ -228,10 +228,22 @@ public interface UserInfo extends Serializable {
 	public abstract void setBirthdate(String birthdate);
 
 	/**
+	 * 
+	 * @return
+	 */
+	public abstract String getEyeColor();
+
+	/**
+	 * 
+	 * @param eyeColor
+	 */
+	public abstract void setEyeColor(String eyeColor);
+	/**
 	 * Serialize this UserInfo object to JSON
 	 * 
 	 * @return
 	 */
+
 	public abstract JsonObject toJson();
 
 }
