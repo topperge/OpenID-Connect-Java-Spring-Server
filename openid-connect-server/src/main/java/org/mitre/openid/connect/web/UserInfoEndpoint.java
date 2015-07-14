@@ -68,13 +68,13 @@ public class UserInfoEndpoint {
 	public String getInfo(@RequestParam(value="claims", required=false) String claimsRequestJsonString,
 			@RequestHeader(value="Accept", required=false) String acceptHeader,
 			OAuth2Authentication auth, Model model) {
-
+        System.out.println("2");
 		if (auth == null) {
 			logger.error("getInfo failed; no principal. Requester is not authorized.");
 			model.addAttribute("code", HttpStatus.FORBIDDEN);
 			return HttpCodeView.VIEWNAME;
 		}
-
+        System.out.println("3");
 		String username = auth.getName();
 		UserInfo userInfo = userInfoService.getByUsernameAndClientId(username, auth.getOAuth2Request().getClientId());
 
@@ -83,7 +83,7 @@ public class UserInfoEndpoint {
 			model.addAttribute("code", HttpStatus.NOT_FOUND);
 			return HttpCodeView.VIEWNAME;
 		}
-
+        System.out.println("4");
 		model.addAttribute("scope", auth.getOAuth2Request().getScope());
 
 		model.addAttribute("authorizedClaims", auth.getOAuth2Request().getExtensions().get("claims"));
@@ -91,15 +91,15 @@ public class UserInfoEndpoint {
 		if (!Strings.isNullOrEmpty(claimsRequestJsonString)) {
 			model.addAttribute("requestedClaims", claimsRequestJsonString);
 		}
-
+        System.out.println("5");
 		model.addAttribute("userInfo", userInfo);
-
+        System.out.println("6");
 		// content negotiation
 
 		// start off by seeing if the client has registered for a signed/encrypted JWT from here
 		ClientDetailsEntity client = clientService.loadClientByClientId(auth.getOAuth2Request().getClientId());
 		model.addAttribute("client", client);
-		
+        System.out.println("7");
 		List<MediaType> mediaTypes = MediaType.parseMediaTypes(acceptHeader);
 		MediaType.sortBySpecificityAndQuality(mediaTypes);
 		
@@ -109,25 +109,31 @@ public class UserInfoEndpoint {
 			// client has a preference, see if they ask for plain JSON specifically on this request
 			for (MediaType m : mediaTypes) {
 				if (!m.isWildcardType() && m.isCompatibleWith(JOSE_MEDIA_TYPE)) {
+        System.out.println("1 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 					return UserInfoJwtView.VIEWNAME;
 				} else if (!m.isWildcardType() && m.isCompatibleWith(MediaType.APPLICATION_JSON)) {
+        System.out.println("2 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 					return UserInfoView.VIEWNAME;
 				}
 			}
 			
 			// otherwise return JWT
+        System.out.println("3 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 			return UserInfoJwtView.VIEWNAME;
 		} else {
 			// client has no preference, see if they asked for JWT specifically on this request
 			for (MediaType m : mediaTypes) {
 				if (!m.isWildcardType() && m.isCompatibleWith(MediaType.APPLICATION_JSON)) {
+        System.out.println("4 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 					return UserInfoView.VIEWNAME;
 				} else if (!m.isWildcardType() && m.isCompatibleWith(JOSE_MEDIA_TYPE)) {
+        System.out.println("5 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 					return UserInfoJwtView.VIEWNAME;
 				}
 			}
 
 			// otherwise return JSON
+        System.out.println("6 I have no clue what I'm doing : " + UserInfoView.VIEWNAME);
 			return UserInfoView.VIEWNAME;
 		}
 

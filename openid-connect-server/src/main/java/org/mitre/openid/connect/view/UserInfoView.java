@@ -101,7 +101,7 @@ public class UserInfoView extends AbstractView {
 			requestedClaims = jsonParser.parse((String) model.get("requestedClaims")).getAsJsonObject();
 		}
 		JsonObject json = toJsonFromRequestObj(userInfo, scope, authorizedClaims, requestedClaims);
-
+        System.out.println("This is the json object: " + json);
 		writeOut(json, model, request, response);
 	}
 
@@ -167,7 +167,7 @@ public class UserInfoView extends AbstractView {
 				} // otherwise there were specific claims requested and this wasn't one of them
 			}
 		}
-
+		System.out.println("This is the result: " + result);
 		return result;
 	}
 }

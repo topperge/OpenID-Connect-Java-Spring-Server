@@ -416,8 +416,8 @@ public class DefaultUserInfo implements UserInfo {
 	 */
 	@Override
 	public void setEyeColor(String eyeColor) {
-		this.eyeColor = eyeColor;
 		System.out.println("setEyeColor:" + this.eyeColor);
+		this.eyeColor = eyeColor;
 	}
 
 
@@ -489,7 +489,8 @@ public class DefaultUserInfo implements UserInfo {
 		ui.setLocale(obj.has("locale") ? obj.get("locale").getAsString() : null);
 		ui.setUpdatedTime(obj.has("updated_time") ? obj.get("updated_time").getAsString() : null);
 		ui.setBirthdate(obj.has("birthdate") ? obj.get("birthdate").getAsString() : null);
-
+		ui.setEyeColor(obj.has("eye_color") ? obj.get("eye_color").getAsString() : null);
+		
 		ui.setEmail(obj.has("email") ? obj.get("email").getAsString() : null);
 		ui.setEmailVerified(obj.has("email_verified") ? obj.get("email_verified").getAsBoolean() : null);
 
@@ -523,6 +524,7 @@ public class DefaultUserInfo implements UserInfo {
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((birthdate == null) ? 0 : birthdate.hashCode());
+		result = prime * result + ((eyeColor == null) ? 0 : eyeColor.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((emailVerified == null) ? 0 : emailVerified.hashCode());
 		result = prime * result + ((familyName == null) ? 0 : familyName.hashCode());
@@ -586,6 +588,13 @@ public class DefaultUserInfo implements UserInfo {
 				return false;
 			}
 		} else if (!emailVerified.equals(other.emailVerified)) {
+			return false;
+		}
+		if (eyeColor == null) {
+			if (other.eyeColor != null) {
+				return false;
+			}
+		} else if (!eyeColor.equals(other.eyeColor)) {
 			return false;
 		}
 		if (familyName == null) {
