@@ -408,6 +408,7 @@ public class DefaultUserInfo implements UserInfo {
 	@Basic
 	@Column(name="eye_color")
 	public String getEyeColor() {
+		System.out.println("getEyeColor:" + eyeColor);
 		return eyeColor;
 	}
 	/**
@@ -416,6 +417,7 @@ public class DefaultUserInfo implements UserInfo {
 	@Override
 	public void setEyeColor(String eyeColor) {
 		this.eyeColor = eyeColor;
+		System.out.println("setEyeColor:" + this.eyeColor);
 	}
 
 
