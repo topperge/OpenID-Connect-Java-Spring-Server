@@ -195,6 +195,7 @@ CREATE TABLE IF NOT EXISTS user_info (
 	address_id VARCHAR(256),
 	updated_time VARCHAR(256),
 	birthdate VARCHAR(256)
+	eye_color VARCHAR(256)
 );
 
 CREATE TABLE IF NOT EXISTS whitelisted_site (
