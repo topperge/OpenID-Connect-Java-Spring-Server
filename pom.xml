@@ -42,10 +42,10 @@
   </modules>
     
 	<scm>
-		<connection>scm:git:https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server.git</connection>
-		<developerConnection>scm:git:git@github.com:mitreid-connect/OpenID-Connect-Java-Spring-Server.git</developerConnection>
-		<url>https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server.git</url>
-		<tag>HEAD</tag>
+		<connection>scm:git:https://github.com/topperge/OpenID-Connect-Java-Spring-Server.git</connection>
+		<developerConnection>scm:git:git@github.com:topperge/OpenID-Connect-Java-Spring-Server.git</developerConnection>
+		<url>https://github.com/topperge/OpenID-Connect-Java-Spring-Server.git</url>
+		<tag>mitre-connect-1.1.16-eye_color-debugPrintln</tag>
 	</scm>
 
 	<developers>
