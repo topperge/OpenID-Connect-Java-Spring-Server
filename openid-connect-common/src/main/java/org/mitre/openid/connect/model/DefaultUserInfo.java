@@ -75,6 +75,7 @@ public class DefaultUserInfo implements UserInfo {
 	private Address address;
 	private String updatedTime;
 	private String birthdate;
+	private String eyeColor;
 	private transient JsonObject src; // source JSON if this is loaded remotely
 
 
@@ -415,6 +416,23 @@ public class DefaultUserInfo implements UserInfo {
 		this.birthdate = birthdate;
 	}
 
+	/**
+	 * @return the eyeColor
+	 */
+	@Override
+	@Basic
+	@Column(name="eye_color")
+	public String getEyeColor() {
+		return eyeColor;
+	}
+	/**
+	 * @param birthdate the birthdate to set
+	 */
+	@Override
+	public void setEyeColor(String eyeColor) {
+		this.eyeColor = eyeColor;
+	}
+	
 	@Override
 	public JsonObject toJson() {
 		
@@ -438,6 +456,7 @@ public class DefaultUserInfo implements UserInfo {
 			obj.addProperty("locale", this.getLocale());
 			obj.addProperty("updated_time", this.getUpdatedTime());
 			obj.addProperty("birthdate", this.getBirthdate());
+			obj.addProperty("eye_color", this.getEyeColor());
 	
 			obj.addProperty("email", this.getEmail());
 			obj.addProperty("email_verified", this.getEmailVerified());
@@ -490,6 +509,7 @@ public class DefaultUserInfo implements UserInfo {
 		ui.setLocale(nullSafeGetString(obj, "locale"));
 		ui.setUpdatedTime(nullSafeGetString(obj, "updated_time"));
 		ui.setBirthdate(nullSafeGetString(obj, "birthdate"));
+		ui.setBirthdate(nullSafeGetString(obj, "eye_color"));
 
 		ui.setEmail(nullSafeGetString(obj, "email"));
 		ui.setEmailVerified(obj.has("email_verified") && obj.get("email_verified").isJsonPrimitive() ? obj.get("email_verified").getAsBoolean() : null);
@@ -546,6 +566,7 @@ public class DefaultUserInfo implements UserInfo {
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((birthdate == null) ? 0 : birthdate.hashCode());
+		result = prime * result + ((eyeColor == null) ? 0 : eyeColor.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((emailVerified == null) ? 0 : emailVerified.hashCode());
 		result = prime * result + ((familyName == null) ? 0 : familyName.hashCode());
@@ -595,6 +616,13 @@ public class DefaultUserInfo implements UserInfo {
 				return false;
 			}
 		} else if (!birthdate.equals(other.birthdate)) {
+			return false;
+		}
+		if (eyeColor == null) {
+			if (other.eyeColor != null) {
+				return false;
+			}
+		} else if (!eyeColor.equals(other.eyeColor)) {
 			return false;
 		}
 		if (email == null) {
