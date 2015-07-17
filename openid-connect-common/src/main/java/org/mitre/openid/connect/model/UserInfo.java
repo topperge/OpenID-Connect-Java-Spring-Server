@@ -214,10 +214,9 @@ public interface UserInfo extends Serializable {
 	 */
 	public abstract void setUpdatedTime(String updatedTime);
 
-
 	/**
 	 * 
-	 * @return
+	 * @return the birthdate
 	 */
 	public abstract String getBirthdate();
 
@@ -227,6 +226,17 @@ public interface UserInfo extends Serializable {
 	 */
 	public abstract void setBirthdate(String birthdate);
 
+	/**
+	 * 
+	 * @return the eyeColor
+	 */
+	public abstract String getEyeColor();
+
+	/**
+	 * 
+	 * @param eyeColor
+	 */
+	public abstract void setEyeColor(String eyeColor);
 	/**
 	 * Serialize this UserInfo object to JSON
 	 * 
