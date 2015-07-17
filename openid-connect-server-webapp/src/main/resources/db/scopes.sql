@@ -16,7 +16,8 @@ INSERT INTO system_scope_TEMP (scope, description, icon, allow_dyn_reg, default_
   ('email', 'email address', 'envelope', true, true, false, null),
   ('address', 'physical address', 'home', true, true, false, null),
   ('phone', 'telephone number', 'bell', true, true, false, null),
-  ('offline_access', 'offline access', 'time', true, false, false, null);
+  ('offline_access', 'offline access', 'time', true, false, false, null),
+  ('security', 'security, i.e. eye color', 'lock', true, true, false, null);
   
 --
 -- Merge the temporary scopes safely into the database. This is a two-step process to keep scopes from being created on every startup with a persistent store.

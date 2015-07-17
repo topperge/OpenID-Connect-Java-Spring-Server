@@ -60,7 +60,8 @@ public class DefaultScopeClaimTranslationService implements ScopeClaimTranslatio
 		scopesToClaims.put("profile", "locale");
 		scopesToClaims.put("profile", "updated_time");
 		scopesToClaims.put("profile", "birthdate");
-		scopesToClaims.put("profile", "eye_color");
+		
+		scopesToClaims.put("security", "eye_color");
 
 		scopesToClaims.put("email", "email");
 		scopesToClaims.put("email", "email_verified");
